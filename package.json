@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "engines": {
+    "node": "v16.13.1"
+  },
   "dependencies": {
     "ajv": "^6.12.6",
     "array-flatten": "^1.1.1",
@@ -98,6 +101,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "kiru",
