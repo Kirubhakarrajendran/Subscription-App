@@ -50,7 +50,23 @@ app.post("/",function(req,res){
         console.log(JSON.parse(data),response.statusCode);
         if(response.statusCode === 200 && JSON.parse(data).error_count===0)
         {
+            if(JSON.parse(data).total_created===1){
             res.sendFile(__dirname+"/success.html");
+            }
+            else
+            {
+            res.sendFile(__dirname+"/failure.html");
+            }
+        }
+        else if(JSON.parse(data).error_count===1)
+        {
+            if(JSON.parse(data).errors[0].error_code === "ERROR_CONTACT_EXISTS"){
+                res.sendFile(__dirname+"/existinguser.html");
+            }
+            else
+            {
+            res.sendFile(__dirname+"/failure.html");
+            }
         }
         else
         {
